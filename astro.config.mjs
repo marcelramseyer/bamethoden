@@ -6,13 +6,21 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'BA Methods',
+			description: 'Meine Dokumentation über BA Methoden',
+			defaultLocale: 'de',
+			locales: {
+				root: {
+					label: 'Deusch',
+					lang: 'de'
+				}
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Richtlinien',
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Example Guide', slug: 'guides/example' },
@@ -21,6 +29,10 @@ export default defineConfig({
 				{
 					label: 'Reference',
 					autogenerate: { directory: 'reference' },
+				},
+				{
+					label: 'Prototyping',
+					autogenerate: { directory: 'test' },
 				},
 			],
 		}),
