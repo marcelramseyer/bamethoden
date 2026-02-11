@@ -1,21 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightThemeRapide from 'starlight-theme-rapide';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
+      plugins: [starlightThemeRapide()],
       title: '❖ Methodensammlung',
       description: 'Meine Dokumentation über BA Methoden',
       defaultLocale: 'de',
-      components: {
-        ThemeSelect: './src/components/ThemeSelect.astro',
-      },
-      customCss: [
-        // Relativer Pfad zu deiner benutzerdefinierten CSS-Datei
-        './src/styles/custom.css',
-      ],
+      // components: {
+      //   ThemeSelect: './src/components/ThemeSelect.astro',
+      // },
+      // customCss: [
+      //   './src/styles/custom.css',
+      // ],
 
       // logo: {
       //   light: './src/assets/light-logo.svg',
@@ -27,23 +28,27 @@ export default defineConfig({
           lang: 'de',
         },
       },
-      social: {
-        github: 'https://github.com/withastro/starlight',
-      },
+      social: [
+        {
+          label: 'GitHub',
+          icon: 'github',
+          href: 'https://github.com/marcelramseyer/bamethoden',
+        },
+      ],
       sidebar: [
         {
-          label: 'Richtlinien',
+          label: 'Strategie',
           items: [
             // Each item here is one entry in the navigation menu.
             { label: 'Example Guide', slug: 'guides/example' },
           ],
         },
         {
-          label: 'Reference',
+          label: 'Anforderungen',
           autogenerate: { directory: 'reference' },
         },
         {
-          label: 'Prototyping',
+          label: 'Priorisierung',
           autogenerate: { directory: 'test' },
         },
       ],
