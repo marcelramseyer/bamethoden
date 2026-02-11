@@ -1,0 +1,33 @@
+<button id="theme-toggle" aria-label="Theme wechseln">☾</button>
+
+<script is:inline>
+  const button = document.getElementById('theme-toggle');
+
+  const getTheme = () => localStorage.getItem('starlight-theme') || 'light';
+
+  const setTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('starlight-theme', theme);
+  };
+
+  const updateIcon = () => {
+    button.textContent = getTheme() === 'dark' ? '☾' : '☼';
+  };
+
+  updateIcon();
+
+  button?.addEventListener('click', () => {
+    const next = getTheme() === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    updateIcon();
+  });
+</script>
+
+<style>
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+</style>
