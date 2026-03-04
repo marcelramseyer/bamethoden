@@ -8,20 +8,17 @@ export default defineConfig({
   integrations: [
     starlight({
       plugins: [starlightThemeRapide()],
-      title: '❖ Methodensammlung',
+      title: 'Methodensammlung',
       description: 'Meine Dokumentation über BA Methoden',
       defaultLocale: 'de',
       // components: {
       //   ThemeSelect: './src/components/ThemeSelect.astro',
       // },
-      // customCss: [
-      //   './src/styles/custom.css',
-      // ],
+      customCss: ['./src/styles/custom.css'],
 
-      // logo: {
-      //   light: './src/assets/light-logo.svg',
-      //   dark: './src/assets/dark-logo.svg',
-      // },
+      logo: {
+        src: './src/assets/logo.svg',
+      },
       locales: {
         root: {
           label: 'Deusch',
